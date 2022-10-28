@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Home</title>
+	</head>
+	<body>
+		<!-- th:text -> exibe o valor vindo do código java  -->
+		<!-- <h4 th:text="${msg}"></h4> -->	
+		<h1 th:text="${msg}"></h1>
+		<form action="/saveMessages" method="POST">
+		
+			<div>
+				<label htmlFor="name">Name:</label>	   		
+				<input type="text" name="name" class="input-name" />
+			</div>
+			
+			<div>
+				
+			</div>
+			
+		</form>
+		
+	</body>
+</html>

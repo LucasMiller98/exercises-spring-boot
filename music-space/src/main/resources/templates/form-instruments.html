@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+		<title>Music space</title>
+			
+		<link
+			href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css"
+			rel="stylesheet" id="bootstrap-css">
+		<script
+			src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+		<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+			
+	</head>
+	<body>
+	
+		<nav class="navbar navbar-inverse">
+		  <ul class="nav navbar-nav">
+		    <li><a href="/">Cadastrar Contatos</a></li>
+		    <li><a href="/listInstruments">Listar Contatos</a></li>
+		  </ul>
+		</nav>
+		<h1 style="text-align: center;">Music Space</h1>	
+		
+		<div class="container col-sm-12 col-md-6 col-md-offset-2">
+			<form action="/register" th:object="${instrument}" method="POST">
+				<input type="hidden" th:field="*{code}" />
+				
+				<div>
+					<label for="instrumentOwner">Proprietário:</label>
+					<input 
+						type="text" 
+					 	th:field="*{instrumentOwner}" 
+						class="form-control" 
+						id="instrumentOwner" 
+						placeholder="Proprietário do instrumento"
+						required
+					/>
+				</div>
+				
+				<div>
+					<label for="instrumentColor">Cor do instrumento:</label>
+					<input 
+						type="text"  
+						th:field="*{instrumentColor}" 
+						class="form-control" 
+						id="instrumentColor" 
+						placeholder="Telefone do contato"
+						required
+					/>
+				</div>
+				
+				<div>
+					<label for="problemType">Tipo do problema:</label>
+					<input 
+						type="text" 
+						name="problemType" 
+						th:field="*{problemType}" 
+						class="form-control" 
+						id="problemType" 
+						placeholder="Tipo do problema"
+						required
+					/>
+
+				</div>
+				
+				<div>
+					<label for="instrumentType">Tipo do instrumento</label> 
+					<select class="form-control" id="instrumentType"
+						th:field="*{instrumentType}">
+						<option th:value="''">Selecione</option>
+						<option th:each="instrumentType : ${T(com.example.demo.model.InstrumentType).values()}" th:text="${instrumentType}" th:value="${instrumentType}"></option>
+					</select>
+				</div>
+				
+				<button 
+					type="submit"
+					class="btn btn-primary mx-auto"
+				>
+					Salvar
+				</button>
+			</form>
+		</div>
+		
+		
+	</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+		<title>lista de instrumentos</title>
+		
+		<link
+			href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css"
+			rel="stylesheet" id="bootstrap-css">
+		<script
+			src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+		<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+		
+	</head>
+	<body>
+	
+		<header>
+			<nav class="navbar navbar-inverse">
+			  <ul class="nav navbar-nav">
+			    <li><a href="/">Cadastrar Contatos</a></li>
+			    <li><a href="/listInstruments">Listar Contatos</a></li>
+			  </ul>
+			</nav>
+			<h1 style="text-align: center;">Lista de instrumentos para consertar</h1>
+		</header>
+		
+		<div class="container col-sm-12 col-md-8 col-md-offset-2">
+			<table class="table table-striped">
+				<thead>			
+					<tr>
+						<th scope="col">Código</th>
+						<th scope="col">Tipo de instrumento</th>
+						<th scope="col">Cor do instrumento</th>
+						<th scope="col">Proprietário</th>
+						<th scope="col">Tipo do problema</th>
+					</tr>
+				</thead>
+				
+				<tbody>			
+					<tr th:each="instrument : ${list}">
+						<td th:text="${instrument.code}"></td>
+						<td th:text="${instrument.instrumentType}"></td>
+						<td th:text="${instrument.instrumentColor}"></td>
+						<td th:text="${instrument.instrumentOwner}"></td>
+						<td th:text="${instrument.problemType}"></td>
+						<td>
+							<a class="btn btn-primary" th:href="@{/editInstrument(code=${instrument.code})}">Editar</a>
+							<a class="btn btn-danger" th:href="@{/removeInstrument(code=${instrument.code})}">Remover</a>
+						</td>			
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</body>
+</html>
