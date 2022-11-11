@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Comprovante de inscrição</title>
+		
+		<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+		
+		<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+		
+		<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+		
+	</head>
+	<body>
+		<h1 style="text-align: center;">Comprovante de inscrição</h1>
+		
+		<div class="container" style="font-size: 1.5em;">
+			<p>
+				Certificamos que o Sr. (a): <span style="border-bottom: 1.7px solid #171717;" th:text="${athlete.name}"></span>
+				está devidamente inscrito da XVII CORRIDA DO DIVINO ESPÍRITO SANTO ANO 2019 sob o n° de inscrição: <span style="border-bottom: 1.7px solid #171717;" th:text="${athlete.registrationNumber}"></span>
+				na Categoria: <span style="border-bottom: 1.7px solid #171717;" th:text="${athlete.category}"></span>
+			</p>
+			<p>
+				Moju-PA, <span th:text="${athlete.registrationDate}"></span>			
+			</p>
+			<p>			
+				Responsável pela inscrição: <span style="border-bottom: 1.7px solid #171717;" th:text="${athlete.name}"></span>
+			</p>
+		</div> 
+	</body>
+</html>

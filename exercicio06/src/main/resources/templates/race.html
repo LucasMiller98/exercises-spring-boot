@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+		<title>XVII Corrida do divino Espírito Santo</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+		<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+		
+		<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+		
+		<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+		
+	</head>
+	<body>
+		<h1 style="text-align: center;">XVII Corrida do divino Espírito Santo</h1>
+		
+		<div class="container" style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
+		
+			<form style="display: flex; flex-direction: column; gap: 2rem; width: 50vw;" action="/register" th:object="${athlete}" method="POST">
+				
+				<input type="hidden" th:field="*{registrationNumber}" />
+				
+				<div class="mb-3">
+					<label class="form-label" for="registrationDate">Data de inscrição:</label>
+					<input 
+						type="date" 
+						th:field="*{registrationDate}" 
+						class="form-control" 
+						placeholder="Data de inscrição"
+						required
+					/>
+				</div>
+				
+				<div class="mb-3">
+					<label class="form-label" for="bornDate">Data de nascimento:</label>
+					<input 
+						type="date" 
+						th:field="*{bornDate}" 
+						class="form-control" 
+						placeholder="Data de nascimento"
+						required
+					/>
+				</div>
+				
+				<div class="mb-3">
+					<label class="form-label" for="name">Nome:</label>
+					<input 
+						type="text" 
+						th:field="*{name}" 
+						class="form-control"
+						placeholder="Nome"
+						required
+					/>
+				</div>
+				
+				<div class="mb-3">
+					<label class="form-label" for="phone">Telefone:</label>
+					<input 
+						type="tel" 
+						th:field="*{phone}" 
+						class="form-control"
+						placeholder="(99)99999-9999"
+						required	
+					/>
+				</div>
+				
+				<div class="mb-3">
+					<label class="form-label" for="address">Endereço:</label>
+					<input 
+						type="text" 
+						th:field="*{address}" 
+						class="form-control"
+						placeholder="Endereço"
+						required
+					/>
+				</div>
+				 
+				<div class="mb-3">
+					<label class="form-label" for="homeNumber">N°:</label>
+					<input 
+						type="number" 
+						th:field="*{homeNumber}" 
+						class="form-control"
+						placeholder="Número"
+						required
+					/>
+				</div>
+	
+				<div class="mb-3">
+					<label class="form-label" for="complement">Complemento:</label>
+					<input 
+						type="text" 
+						th:field="*{complement}" 
+						class="form-control"
+						placeholder="Complemento"
+						required
+					/>
+				</div>
+				
+				<div class="mb-3">
+					<label class="form-label" for="neighborhood">Bairro:</label> 	
+					<select
+						class="form-control"
+						th:field="*{neighborhood}">
+						<option th:value="''">Selecione</option>
+						<option 
+							th:each="neighborhood : ${T(br.ifpe.web3.model.Neighborhood).values()}" 
+							th:text="${neighborhood}" 
+							th:value="${neighborhood}"></option>
+					</select>
+				</div>
+	
+				<div class="mb-3">
+					
+					<label class="form-label" for="city">Cidade:</label>
+					<select
+						class="form-control"
+						th:field="*{city}">
+						<option th:value="''">Selecione</option>
+						<option 
+							th:each="city : ${T(br.ifpe.web3.model.AthleteCity).values()}" 
+							th:text="${city}" 
+							th:value="${city}"></option>
+					</select>
+				</div>
+				 
+				<div class="mb-3">
+					<label class="form-label" for="email">E-mail:</label>
+					<input 
+						type="email" 
+						th:field="*{email}" 
+						class="form-control"
+						placeholder="E-mail"
+						required
+					/>
+				</div>
+				
+				<div class="mb-3">
+					<label class="form-label" for="team">Equipe:</label>
+					<input 
+						type="text" 
+						th:field="*{team}" 
+						class="form-control"
+						placeholder="Equipe"
+						required
+					/>
+				</div>
+				
+				<div class="mb-3">
+					
+					<label class="form-label" for="bloodType">Tipo sanguineo:</label>
+					<select
+						class="form-control"
+						th:field="*{bloodType}">
+						<option th:value="''">Selecione</option>
+						<option 
+							th:each="bloodType : ${T(br.ifpe.web3.model.BloodType).values()}" 
+							th:text="${bloodType}" 
+							th:value="${bloodType}"></option>
+					</select>
+				</div>
+				
+				<div class="mb-3">
+					<label class="form-label" for="healthInsurance">Convêncio:</label>
+					<select
+						class="form-control"
+						th:field="*{healthInsurance}">
+						<option th:value="''">Selecione</option>
+						<option 
+							th:each="healthInsurance : ${T(br.ifpe.web3.model.HealthInsurance).values()}" 
+							th:text="${healthInsurance}" 
+							th:value="${healthInsurance}"></option>
+					</select>
+				</div>
+				
+				<div class="mb-3">
+					<label class="form-label" for="category">Categoria:</label>
+					<select
+						class="form-control"
+						th:field="*{category}">
+						<option th:value="''">Selecione</option>
+						<option 
+							th:each="category : ${T(br.ifpe.web3.model.Category).values()}" 
+							th:text="${category}" 
+							th:value="${category}"></option>
+					</select>
+				</div>
+				
+				<div class="mb-3">
+					<label class="form-label" for="state">Estado:</label>
+					<select
+						class="form-control"
+						th:field="*{state}">
+						<option th:value="''">Selecione</option>
+						<option 
+							th:each="state : ${T(br.ifpe.web3.model.AthleteState).values()}" 
+							th:text="${state}" 
+							th:value="${state}"></option>
+					</select>
+				</div>
+	
+				<button 
+					type="submit" 
+					class="btn btn-primary mx-auto" 
+					style="margin-bottom: 3rem;"
+				>
+					Enviar
+				</button>
+			</form>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,15 @@
+package br.ifpe.web3.model;
+
+public enum Neighborhood {
+	LOTE92,
+	PERO_VAZ,
+	CARUZU,
+	MANGUEIRA,
+	CAPELINHA,
+	VILA_SETE_DE_SETEMBRO,
+	VILA_SAO_PEDRO,
+	JARDIN_ANGELA,
+	BELA_VISTA,
+	JARDIN_PAULISTA,
+	JABAQUARA
+}
